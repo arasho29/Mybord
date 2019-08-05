@@ -1,0 +1,2 @@
+# Mybord
+railsテスト用のrepositoryです
