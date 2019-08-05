@@ -1,0 +1,24 @@
+<h2>簡易伝言板</h2>
+
+<%= link_to '新規登録', new_post_path %>
+<%= link_to 'ログアウト', logout_path, method: :delete %>
+<%= link_to 'マイページへ', user_path(current_user.id) %>
+
+<table ~~~ style="table-layout:fixed;width:50%;">
+  <colgroup>
+        <col style="width:33%;">
+    </colgroup>
+  <thead>
+  <tr><th>メッセージ</th><th>Name</th></tr>
+  </thead>
+  <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+            <td ~~~ style="word-wrap:break-word;"><%= link_to post.message, post_path(post) %></td>
+            <td><%= post.name %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<%= paginate @posts %>

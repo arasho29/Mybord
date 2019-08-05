@@ -1,0 +1,27 @@
+<%= form_for @post, local: true do |f| %>
+  <p>
+    <%= f.text_field :name, placeholder: 'Name'%>
+    <% if @post.errors.messages[:name].any? %>
+    <span class="error"><%= @post.errors.messages[:name][0] %></span>
+    <% end %>
+  </p>
+
+  <p>
+    <%= f.text_field :mail, placeholder: 'Mail' %>
+    <% if @post.errors.messages[:mail].any? %>
+      <span><%= @post.errors.messages[:mail][0] %></span>
+    <% end %>
+  </p>
+
+  <p>
+    <%= f.text_area :message, placeholder: 'Message' %>
+    <% if @post.errors.messages[:message].any? %>
+    <span><%= @post.errors.messages[:message][0] %></span>
+    <% end %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>

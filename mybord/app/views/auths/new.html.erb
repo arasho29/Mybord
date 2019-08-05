@@ -1,0 +1,18 @@
+<h2>ログイン画面</h2>
+
+<%= form_with scope: :auth, local: true do |f| %>
+  <p>
+    <%= f.text_field :username, placeholder: 'userName'%>
+  </p>
+
+  <p>
+    <%= f.password_field :password, placeholder: 'password' %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>
+
+<p>新規登録の場合は<span><%= link_to 'こちら', new_user_path %></span>を入力</p>

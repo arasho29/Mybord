@@ -1,0 +1,42 @@
+<h2><%= @user.username %> のマイページ</h2>
+
+<p>ユーザー情報</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>ユーザー名</td>
+      <td><%= @user.username%></td>
+    </tr>
+    <tr>
+      <td>ID</td>
+      <td><%= @user.id %></td>
+    </tr>
+    <tr>
+      <td>自己紹介</td>
+      <td><%= @user.introduce %></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<p><%= link_to '編集', edit_user_path %></p>
+
+
+<p>過去投稿内容</p>
+<table>
+<thead>
+<tr><th>メッセージ</th><th>日付</th><th></th></tr>
+</thead>
+<tbody>
+    <% @user.posts.each do |post| %>
+      <tr>
+          <td><%= post.message %></td>
+          <td><%= post.created_at %></td>
+          <td><%= link_to '削除', post_path(post.id), method: :delete, data: {confirm: "本当に削除しますか？"} %></td>
+      </tr>
+    <% end %>
+</tbody>
+</table>
+
+<p><%= link_to 'パスワード変更はこちら',  password_edit_user_path %></p>
