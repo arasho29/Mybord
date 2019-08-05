@@ -1,0 +1,21 @@
+<h2>簡易伝言板</h2>
+
+<table>
+
+<tbody>
+  <tr>
+    <td>日付</td>
+    <td><%= @post.created_at %></td>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td><%= @post.name %></td>
+  </tr>
+  <tr>
+    <td>mail</td>
+    <td><%= @post.mail %></td>
+  </tr>
+  <tr><td colspan="2">メッセージ</td></tr>
+  <tr><td colspan="2"><%= simple_format @post.message %></td></tr>
+</tbody>
+</table>

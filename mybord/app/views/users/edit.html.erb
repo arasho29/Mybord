@@ -1,0 +1,32 @@
+<h2><%= @user.username %> の編集画面</h2>
+
+<p>ユーザー情報</p>
+
+<%= form_with model: @user, local: true, url: user_path, data: {confirm: 'まじで？'} do |f| %>
+  <p>
+    <%= f.text_field :username, placeholder: 'Name'%>
+    <% if @user.errors.messages[:username].any? %>
+    <span class="error"><%= @user.errors.messages[:username][0] %></span>
+    <% end %>
+  </p>
+
+  <p>
+    <%= f.text_field :mail, placeholder: 'Mail' %>
+    <% if @user.errors.messages[:mail].any? %>
+      <span><%= @user.errors.messages[:mail][0] %></span>
+    <% end %>
+  </p>
+
+  <p>
+    <%= f.text_field :introduce, placeholder: 'introduce' %>
+    <% if @user.errors.messages[:introduce].any? %>
+      <span><%= @user.errors.messages[:introduce][0] %></span>
+    <% end %>
+  </p>
+
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>
