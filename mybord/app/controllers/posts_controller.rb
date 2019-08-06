@@ -7,7 +7,7 @@ def index
 end
 
 def new
-  @post = Post.new(user_id: @current_user.id)
+  @post = current_user.posts.new(user_id: @current_user.id)
 end
 
 def create
