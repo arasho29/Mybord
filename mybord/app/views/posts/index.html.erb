@@ -1,3 +1,7 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
 <h2>簡易伝言板</h2>
 
 <%= link_to '新規登録', new_post_path %>

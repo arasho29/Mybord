@@ -30,22 +30,14 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update!(user_params)
-      redirect_to user_path
+    if @user.update(user_params)
+      redirect_to user_path, notice: 'ユーザー情報を更新しました！'
       logger.debug(@user.inspect)
     else
       render :edit
       logger.debug('失敗')
       logger.debug(@user.inspect)
     end
-  end
-
-  def password_edit
-    @user = User.find(current_user.id)
-  end
-
-  def password_update
-    @user = User.find(current_user.id)
   end
 
   private

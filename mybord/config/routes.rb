@@ -5,13 +5,6 @@ Rails.application.routes.draw do
   delete '/logout', to: 'auths#destroy'
 
   resources :posts
-
-  resources :users do
-    member do
-      get :password_edit
-      post :password_update
-    end
-  end
-
+  resources :users 
   root 'posts#index'
 end
