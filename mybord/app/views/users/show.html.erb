@@ -1,3 +1,7 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
 <h2><%= @user.username %> のマイページ</h2>
 
 <p><%= link_to '簡易伝言板へ戻る', root_path %></p>
@@ -41,4 +45,4 @@
 </tbody>
 </table>
 
-<p><%= link_to 'パスワード変更はこちら',  password_edit_user_path %></p>
+<p><%= link_to 'パスワード変更はこちら', root_path %></p>

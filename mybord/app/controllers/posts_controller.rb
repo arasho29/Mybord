@@ -13,7 +13,7 @@ end
 def create
   @post = current_user.posts.new(post_params)
   if @post.save
-    redirect_to posts_path
+    redirect_to posts_path, notice: '新規投稿しました！'
     logger.debug(@post.inspect)
   else
     render :new
@@ -24,7 +24,7 @@ end
 def destroy
   post = current_user.posts.find(params[:id])
   post.destroy
-  redirect_to user_path(current_user.id)
+  redirect_to user_path(current_user.id), notice: '投稿を削除！'
 end
 
 def show
