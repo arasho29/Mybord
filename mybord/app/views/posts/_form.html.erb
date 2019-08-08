@@ -1,13 +1,13 @@
 <%= form_for @post, local: true do |f| %>
   <p>
-    <%= f.text_field :name, placeholder: 'Name' %>
+    <%= f.text_field :name, placeholder: 'Name', value: current_user.username %>
     <% if @post.errors.messages[:name].any? %>
     <span class="error"><%= @post.errors.messages[:name][0] %></span>
     <% end %>
   </p>
 
   <p>
-    <%= f.text_field :mail, placeholder: 'Mail' %>
+    <%= f.text_field :mail, placeholder: 'Mail', value: current_user.mail   %>
     <% if @post.errors.messages[:mail].any? %>
       <span><%= @post.errors.messages[:mail][0] %></span>
     <% end %>
